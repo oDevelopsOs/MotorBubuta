@@ -16,6 +16,10 @@ valkey:
 search:
   safe_search: 0
   autocomplete: "duckduckgo"
+  # El settings por defecto de SearXNG solo deja `html`; sin `json` la API devuelve 403 y MotorSRCH no puede usar /search?format=json
+  formats:
+    - html
+    - json
 
 ui:
   static_use_hash: true
