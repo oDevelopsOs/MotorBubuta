@@ -4,16 +4,15 @@ Esta carpeta esta preparada para desplegar SearXNG como servicio aparte (Render,
 
 ## 1) Deploy en Northflank / Fly / otros
 
-Hay dos formas válidas (no mezcles contexto y Dockerfile):
+Con **build context = `/`** (raíz del repo), usa cualquiera de estos Dockerfiles (hacen lo mismo):
 
-| Plataforma | Root / working directory | Dockerfile |
-|------------|--------------------------|------------|
-| Raíz del repo | `/` o vacío | `/Dockerfile` |
-| Solo carpeta `deploy-service` | `deploy-service` | `Dockerfile` (este directorio) |
+- **Dockerfile location:** `/Dockerfile`, o
+- **Dockerfile location:** `/deploy-service/Dockerfile`
 
-- **Build context** debe incluir los archivos que copia el Dockerfile (si el contexto es casi vacío, revisa el directorio raíz del build).
+Ambos copian desde `deploy-service/settings.yml` y `deploy-service/render-entrypoint.sh`.
+
 - Variable de entorno: `SEARXNG_SECRET_KEY=<una_clave_larga_aleatoria>`
-- Asegúrate de desplegar el **último commit** de `main` (no uno antiguo).
+- Despliega el **último commit** de `main`.
 
 ## 2) Deploy en Render (servicio aparte)
 
