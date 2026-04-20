@@ -3,3 +3,8 @@
 !container/entrypoint.sh
 !searx/**
 !requirements*.txt
+
+# MotorBubuta / PaaS: root Dockerfile copies these (must not be ignored)
+!deploy-service/
+!deploy-service/settings.yml
+!deploy-service/render-entrypoint.sh
