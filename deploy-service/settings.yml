@@ -1,0 +1,22 @@
+use_default_settings: true
+
+general:
+  instance_name: "MotorSRCH SearXNG"
+
+server:
+  # IMPORTANT: replace this in Render env as SEARXNG_SECRET_KEY.
+  secret_key: "change-me-in-render"
+  limiter: false
+  image_proxy: true
+
+# Disable Valkey/Redis requirement for single-service free-tier deployments.
+valkey:
+  url: false
+
+search:
+  safe_search: 0
+  autocomplete: "duckduckgo"
+
+ui:
+  static_use_hash: true
+

@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: motor-searxng
+    runtime: docker
+    plan: free
+    dockerfilePath: ./deploy-service/Dockerfile
+    dockerContext: .
+    healthCheckPath: /
+    envVars:
+      - key: SEARXNG_SECRET_KEY
+        sync: false
