@@ -1,8 +1,8 @@
 FROM docker.io/searxng/searxng:latest
 
-# Custom instance config for standalone deployment.
-COPY settings.yml /etc/searxng/settings.yml
-COPY render-entrypoint.sh /usr/local/searxng/render-entrypoint.sh
+# Build context = raíz del repo (Render/Northflank). No uses context=deploy-service solo.
+COPY deploy-service/settings.yml /etc/searxng/settings.yml
+COPY deploy-service/render-entrypoint.sh /usr/local/searxng/render-entrypoint.sh
 RUN chmod +x /usr/local/searxng/render-entrypoint.sh
 
 EXPOSE 8080
